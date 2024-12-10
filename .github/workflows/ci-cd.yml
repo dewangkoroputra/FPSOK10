@@ -74,7 +74,6 @@ jobs:
               -Dsonar.login="${SONAR_TOKEN}" \
               -Dsonar.exclusions="**/*.js,**/*.ts" \
               -Dsonar.exclusions=**/*.html
-              -X
 
   deploy:
     runs-on: ubuntu-latest
