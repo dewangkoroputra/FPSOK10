@@ -60,7 +60,7 @@ jobs:
         run: |
           # SSH to EC2 and run SonarScanner analysis
           ssh -i /tmp/ec2_key.pem ec2-user@${{ secrets.EC2_PUBLIC_IP }} << EOF
-            cd /path/to/your/project
+            cd /home/ec2-user/FPSOK10
             sonar-scanner \
               -Dsonar.projectKey="dewangkoroputra_FPSOK10" \
               -Dsonar.organization="fp-pso-k10" \
