@@ -44,28 +44,20 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install SonarScanner
-        run: |
-          curl -sL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip -o sonar-scanner.zip
-          unzip sonar-scanner.zip -d $HOME
-          export PATH="$HOME/sonar-scanner-5.0.1.3006-linux/bin:$PATH"
-
-      - name: Verify SonarScanner Installation
-        run: |
-          echo "SonarScanner Path: $(which sonar-scanner)"
-          sonar-scanner -v
-
-      - name: Run SonarCloud Analysis
+      - name: Run SonarCloud Analysis on EC2
         env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
         run: |
-          sonar-scanner \
-            -Dsonar.projectKey="fp-pso-k10" \
-            -Dsonar.organization="FP_PSO_K10" \
-            -Dsonar.sources="." \
-            -Dsonar.host.url="https://sonarcloud.io" \
-            -Dsonar.login="${SONAR_TOKEN}" \
-            -X
+          # SSH to EC2 and run SonarScanner analysis
+          ssh -i ${{ secrets.EC2_SSH_KEY }} ec2-user@${{ secrets.EC2_PUBLIC_IP }} << EOF
+            cd /path/to/your/project
+            sonar-scanner \
+              -Dsonar.projectKey="fp-pso-k10" \
+              -Dsonar.organization="FP_PSO_K10" \
+              -Dsonar.sources="." \
+              -Dsonar.host.url="https://sonarcloud.io" \
+              -Dsonar.login="${SONAR_TOKEN}" \
+              -X
 
   deploy:
     runs-on: ubuntu-latest
