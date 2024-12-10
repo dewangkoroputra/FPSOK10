@@ -62,8 +62,8 @@ jobs:
           ssh -i /tmp/ec2_key.pem ec2-user@${{ secrets.EC2_PUBLIC_IP }} << EOF
             cd /path/to/your/project
             sonar-scanner \
-              -Dsonar.projectKey="fp-pso-k10" \
-              -Dsonar.organization="dewangkoroputra_FPSOK10" \
+              -Dsonar.projectKey="dewangkoroputra_FPSOK10" \
+              -Dsonar.organization="fp-pso-k10" \
               -Dsonar.sources="." \
               -Dsonar.host.url="https://sonarcloud.io" \
               -Dsonar.login="${SONAR_TOKEN}" \
