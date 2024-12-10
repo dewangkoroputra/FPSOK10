@@ -31,6 +31,17 @@ jobs:
           name: suit-otomatis-image
           path: suit-otomatis.tar
 
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
   analyze:
     runs-on: ubuntu-latest
 
@@ -48,18 +59,29 @@ jobs:
 
       # Step 3: Verify Java Version
       - name: Verify Java Version
-        run: java -version
+        run: |
+          echo "JAVA_HOME=$JAVA_HOME"
+          java -version
 
-      # Step 4: Run SonarCloud Analysis with Explicit Java 17
+      # Step 4: Install SonarScanner and Use Correct Java
       - name: Run SonarCloud Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
         run: |
+          # Install SonarScanner
           curl -sL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip -o sonar-scanner.zip
           unzip sonar-scanner.zip -d $HOME
-          export PATH=$HOME/sonar-scanner-4.8.0.2856-linux/bin:$PATH
+          
+          # Set SonarScanner and Java Environment
+          export PATH="$HOME/sonar-scanner-4.8.0.2856-linux/bin:$PATH"
           export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
           export PATH=$JAVA_HOME/bin:$PATH
+          
+          # Verify Java Version Used by SonarScanner
+          java -version
+          sonar-scanner -v
+          
+          # Run Sonar Analysis
           sonar-scanner \
             -Dsonar.projectKey="fp-pso-k10" \
             -Dsonar.organization="FP_PSO_K10" \
@@ -67,6 +89,7 @@ jobs:
             -Dsonar.host.url="https://sonarcloud.io" \
             -Dsonar.login="${SONAR_TOKEN}" \
             -X
+
 
 
 
