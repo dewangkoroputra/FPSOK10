@@ -31,7 +31,7 @@ jobs:
           name: suit-otomatis-image
           path: suit-otomatis.tar
 
-    analyze:
+  analyze:
     runs-on: ubuntu-latest
 
     steps:
