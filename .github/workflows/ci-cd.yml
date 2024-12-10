@@ -48,8 +48,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
         run: |
+          # Save EC2 SSH key to a file temporarily
+          echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ec2_key.pem
+          chmod 600 /tmp/ec2_key.pem
+          
           # SSH to EC2 and run SonarScanner analysis
-          ssh -i ${{ secrets.EC2_SSH_KEY }} ec2-user@${{ secrets.EC2_PUBLIC_IP }} << EOF
+          ssh -i /tmp/ec2_key.pem ec2-user@${{ secrets.EC2_PUBLIC_IP }} << EOF
             cd /path/to/your/project
             sonar-scanner \
               -Dsonar.projectKey="fp-pso-k10" \
