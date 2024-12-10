@@ -63,7 +63,7 @@ jobs:
             cd /path/to/your/project
             sonar-scanner \
               -Dsonar.projectKey="fp-pso-k10" \
-              -Dsonar.organization="FP_PSO_K10" \
+              -Dsonar.organization="dewangkoroputra_FPSOK10" \
               -Dsonar.sources="." \
               -Dsonar.host.url="https://sonarcloud.io" \
               -Dsonar.login="${SONAR_TOKEN}" \
