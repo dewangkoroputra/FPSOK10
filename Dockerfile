@@ -1,8 +1,10 @@
-# Menggunakan image official nginx sebagai dasar
-FROM nginx:alpine
+# Menggunakan Nginx untuk serve file HTML, CSS, dan JS
+FROM nginx:latest
 
-# Salin semua file web ke direktori default Nginx
-COPY . /usr/share/nginx/html
+# Copy file ke direktori default Nginx
+COPY ./index.html /usr/share/nginx/html/
+COPY ./style.css /usr/share/nginx/html/
+COPY ./script.js /usr/share/nginx/html/
 
-# Expose port 80 untuk akses web
+# Expose port 80 untuk HTTP
 EXPOSE 80

@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80" # Peta port EC2 ke container
+    container_name: suit-otomatis-container
