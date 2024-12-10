@@ -31,17 +31,6 @@ jobs:
           name: suit-otomatis-image
           path: suit-otomatis.tar
 
-name: SonarCloud Analysis
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-
   analyze:
     runs-on: ubuntu-latest
 
@@ -71,16 +60,16 @@ on:
           # Install SonarScanner
           curl -sL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856-linux.zip -o sonar-scanner.zip
           unzip sonar-scanner.zip -d $HOME
-          
+
           # Set SonarScanner and Java Environment
           export PATH="$HOME/sonar-scanner-4.8.0.2856-linux/bin:$PATH"
           export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
           export PATH=$JAVA_HOME/bin:$PATH
-          
+
           # Verify Java Version Used by SonarScanner
           java -version
           sonar-scanner -v
-          
+
           # Run Sonar Analysis
           sonar-scanner \
             -Dsonar.projectKey="fp-pso-k10" \
@@ -89,9 +78,6 @@ on:
             -Dsonar.host.url="https://sonarcloud.io" \
             -Dsonar.login="${SONAR_TOKEN}" \
             -X
-
-
-
 
   deploy:
     runs-on: ubuntu-latest
@@ -128,7 +114,6 @@ on:
           key: ${{ secrets.EC2_SSH_KEY }}
           source: suit-otomatis.tar
           target: ~/docker-images/
-          
 
       # Step 4: Load Docker Image and Deploy
       - name: SSH to EC2 and Deploy Container
