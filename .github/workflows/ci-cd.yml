@@ -50,11 +50,9 @@ jobs:
           unzip sonar-scanner.zip -d $HOME
           export PATH="$HOME/sonar-scanner-5.0.1.3006-linux/bin:$PATH"
 
-      - name: Configure Java for SonarScanner
+      - name: Verify SonarScanner Installation
         run: |
-          export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-          export PATH=$JAVA_HOME/bin:$PATH
-          java -version
+          echo "SonarScanner Path: $(which sonar-scanner)"
           sonar-scanner -v
 
       - name: Run SonarCloud Analysis
