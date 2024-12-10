@@ -61,9 +61,12 @@ jobs:
       - name: Upload Docker Tarball
         uses: appleboy/scp-action@v0.1.7
         with:
-          source: suit-otomatis.tar
-          target: ec2-user@${{ secrets.EC2_PUBLIC_IP }}:~/docker-images/
+          host: ${{ secrets.EC2_PUBLIC_IP }}
+          username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
+          source: suit-otomatis.tar
+          target: ~/docker-images/
+          
 
       # Step 4: Load Docker Image and Deploy
       - name: SSH to EC2 and Deploy Container
