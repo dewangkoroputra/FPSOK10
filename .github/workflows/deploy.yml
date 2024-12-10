@@ -26,7 +26,7 @@ jobs:
 
       # Step 4: Upload Docker Image Artifact
       - name: Upload Docker Image Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: suit-otomatis-image
           path: suit-otomatis.tar
@@ -38,7 +38,7 @@ jobs:
     steps:
       # Step 1: Download Docker Image Artifact
       - name: Download Docker Image Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: suit-otomatis-image
 
@@ -57,7 +57,7 @@ jobs:
             # Pastikan tidak ada tarball lama
             rm -f ~/docker-images/suit-otomatis.tar
 
-      # Step 3: Upload Docker Image Tarball
+      # Step 3: Upload Docker Tarball
       - name: Upload Docker Tarball
         uses: appleboy/scp-action@v0.1.7
         with:
