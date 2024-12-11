@@ -6,3 +6,13 @@ services:
     ports:
       - "80:80" # Peta port EC2 ke container
     container_name: suit-otomatis-container
+  sonar-scanner:
+    image: openjdk:17-jdk-slim
+    container_name: sonar-scanner-container
+    environment:
+      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+      - PATH=$JAVA_HOME/bin:$PATH
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: sonar-scanner
