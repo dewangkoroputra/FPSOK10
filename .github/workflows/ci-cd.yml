@@ -44,7 +44,14 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'adoptopenjdk'
+          distribution: 'temurin'  # Gunakan temurin sebagai distribusi Java terbaru
+          java-package: jdk
+          check-latest: false
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
+          overwrite-settings: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 3: Set up SonarCloud
       - name: Set up SonarCloud
@@ -58,6 +65,7 @@ jobs:
       - name: Run SonarCloud Analysis
         run: |
           sonar-scanner
+
 
   deploy:
     runs-on: ubuntu-latest
