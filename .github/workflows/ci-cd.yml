@@ -40,13 +40,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up SonarCloud
+       # Step 2: Set up SonarCloud
       - name: Set up SonarCloud
         uses: SonarSource/sonarcloud-github-action@v1
-        with:
-          sonar-project-key: your_project_key
-          sonar-organization: your_organization
-          sonar-token: ${{ secrets.SONAR_TOKEN }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: fp-pso-k10
+          SONAR_ORGANIZATION: FP_PSO_K10
 
       # Step 3: Run SonarCloud Analysis
       - name: Run SonarCloud Analysis
