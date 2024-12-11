@@ -2,10 +2,8 @@ name: Build and Deploy to AWS EC2
 
 on:
   push:
-    branches: [ "main" ] # Pipeline berjalan setiap ada perubahan di branch `main`
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch: 
+    branches: 
+      - main # Pipeline berjalan setiap ada perubahan di branch `main`
 
 permissions:
   pull-requests: read # allows SonarCloud to decorate PRs with analysis results
@@ -35,6 +33,7 @@ jobs:
           args: >
               -Dsonar.organization=evanrizasa
               -Dsonar.projectKey=FPSOK10
+              -X
 
   build:
     runs-on: ubuntu-latest
@@ -77,7 +76,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.EC2_PUBLIC_IP }}
-          username: ubuntu  # Username Anda
+          username: ec2-user  # Username Anda
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
@@ -92,7 +91,7 @@ jobs:
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.EC2_PUBLIC_IP }}
-          username: ubuntu
+          username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           source: suit-otomatis.tar
           target: ~/docker-images/
