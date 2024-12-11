@@ -32,7 +32,7 @@ jobs:
         with:
           args: >
               -Dsonar.organization=evanrizasa
-              -Dsonar.projectKey=FPSOK10
+              -Dsonar.projectKey=EvanrizaSA_FPSOK10
               -X
 
   build:
