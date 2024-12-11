@@ -61,7 +61,6 @@ jobs:
           name: suit-otomatis-image
           path: suit-otomatis.tar
 
-
   deploy:
     runs-on: ubuntu-latest
     needs: build  # Menunggu proses build selesai
