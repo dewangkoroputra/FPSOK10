@@ -1,24 +1,89 @@
-# Rock Paper Scissors Web App
+# Hi, everyone! 👋
 
-This is a simple Rock Paper Scissors web app where the computer plays against itself. The app is built using HTML, CSS, and JavaScript.
+This is our Final Project for the DevOps (A) class. This Final DevOps Project aims to build a pipeline that allows appearance changes to the Rock Paper Scissors application to be deployed automatically.
 
-![Rock Paper Scissors Web App Screenshot](screenshot.png)
+## Introducing our team!
+- Ihsan Kamil Al Ghozi - 5026211117 | <a href="https://github.com/Deceitfulz">Github</a>
+- Evanriza Safiq Ariadi - 5026211139 | <a href="https://github.com/EvanrizaSA">Github</a>
+- Dewangkoro Ramadhan Putra - 5026211167 | <a href="https://github.com/dewangkoroputra">Github</a>
 
-## Features
+## Project Documentation
 
-- Displays a randomly generated Rock, Paper, or Scissors symbol for both the left and right sides.
-- Highlights the winner in green and draws in yellow.
-- Repeats the game every 100ms for 4 seconds and then shows the final result.
+[Lihat dokumen](https://docs.google.com/document/d/1yECMtCjy4x7LieEO0G_MZIfxiZ-xGr037UEWjfdmdeU/edit?usp=sharing/preview)
 
-## How to use
+## About The Project
 
-1. Clone this repository or download the files.
-2. Open the `index.html` file in your browser.
-3. Click the "Start" button to start the game.
-4. The game will play itself and show the result after 4 seconds.
+Rock Paper Scissors merupakan permainan klasik dimana terdapat 3 opsi yang bisa dipilih untuk memainkannya, gunting, kertas, ataupun batu. Pada aplikasi ini, sistem akan melawan dirinya sendiri secara otomatis jika kita menekan tombol start. Pemenang akan ditandai warna hijau, sedangkan apabila seri akan berwarna kuning.
 
-## Files
+### Tools Used
 
-- `index.html`: Contains the structure of the web app.
-- `style.css`: Contains the styling for the web app.
-- `script.js`: Contains the JavaScript code that handles the game logic and UI updates.
+-   ![HTML](https://img.shields.io/badge/HTML-%23E34F26?style=for-the-badge&logo=html5&logoColor=white)
+-   ![CSS](https://img.shields.io/badge/CSS-%231572B6?style=for-the-badge&logo=css3&logoColor=white)
+-   ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+-   ![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-%23007ACC?style=for-the-badge&logo=azuredevops&logoColor=white)
+-   ![SonarCloud](https://img.shields.io/badge/SonarCloud-%234E9BCD?style=for-the-badge&logo=sonarcloud&logoColor=white)
+-   ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-%232671E5?style=for-the-badge&logo=githubactions&logoColor=white)
+-   ![Docker](https://img.shields.io/badge/Docker-%230db7ed?style=for-the-badge&logo=docker&logoColor=white)
+-   ![Amazon EC2](https://img.shields.io/badge/Amazon%20EC2-%23FF9900?style=for-the-badge&logo=amazonec2&logoColor=white)
+
+
+## Steps to Start
+
+The following are the steps that need to be taken to run this project
+
+### Step 1: Clone the Repository
+
+- **Clone the repository using HTTPS**
+
+   ```sh
+    git clone https://github.com/EvanrizaSA/FPSOK10.git
+   ```
+
+- **Navigate into the cloned repository**
+
+   ```sh
+    cd FPSOK10
+   ```
+
+### Step 2: Run the project 
+
+   ```sh
+   index.html
+   ```
+
+### What You Need to Prepare
+
+- #### Docker
+    Visit Docker installation here: [Docker Installation](https://www.docker.com/products/docker-hub/)
+
+- #### SonarCloud
+    Visit SonarCloud setup guide here: [SonarCloud Setup](https://sonarcloud.io/)
+
+- #### Amazon EC2
+    Visit Amazon EC2 setup guide here: [Amazon EC2 Setup](https://aws.amazon.com/ec2/getting-started/)
+
+  
+### Setup
+
+_After donwloading all prequities, you can follow this setup steps:_
+
+#### [Docker](https://docs.docker.com/?_gl=1*1c6kr47*_gcl_au*MTA3NjkzNTEyNC4xNzE2OTc4MTE0*_ga*MjAzODQ3MzkxMC4xNzE2OTU3MDUw*_ga_XJWPQMJYHQ*MTcxOTM4ODY3My4yNC4xLjE3MTkzODg2NzMuNjAuMC4w)
+
+Docker is use to containerized our development environtment. In this project docker will reads dockerfiles files.
+
+-   ##### [dockerfiles](https://github.com/laodeshaldanfalih/docker-trinity-app/tree/main/dockerfiles)
+    This files are use for configuring every image that have been installed. In this project we assign every image to the user and group so that it can be accessed in the server
+
+
+## Contact
+
+### Ihsan Kamil Al Ghozi
+[![Outlook](https://img.shields.io/badge/Outlook-%230078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:5026211117@student.its.ac.id) [![WhatsApp](https://img.shields.io/badge/WhatsApp-%25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6281211528765)
+
+### Evanriza Safiq Ariadi
+[![Outlook](https://img.shields.io/badge/Outlook-%230078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:5026211139@student.its.ac.id) [![WhatsApp](https://img.shields.io/badge/WhatsApp-%25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6281290699818)
+
+### Dewangkoro Ramadhan Putra
+[![Outlook](https://img.shields.io/badge/Outlook-%230078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:5026211167@student.its.ac.id) [![WhatsApp](https://img.shields.io/badge/WhatsApp-%25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/6281271193253)
+
+Project Link: [https://github.com/EvanrizaSA/FPSOK10]
