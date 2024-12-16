@@ -15,6 +15,12 @@ This is our Final Project for the DevOps (A) class. This Final DevOps Project ai
 
 Rock Paper Scissors merupakan permainan klasik dimana terdapat 3 opsi yang bisa dipilih untuk memainkannya, gunting, kertas, ataupun batu. Pada aplikasi ini, sistem akan melawan dirinya sendiri secara otomatis jika kita menekan tombol start. Pemenang akan ditandai warna hijau, sedangkan apabila seri akan berwarna kuning.
 
+Kondisi Menang
+![Alt Text](final2.png)
+
+Kondisi Seri
+![Alt Text](final.png)
+
 ### Tools Used
 
 -   ![HTML](https://img.shields.io/badge/HTML-%23E34F26?style=for-the-badge&logo=html5&logoColor=white)
